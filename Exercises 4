@@ -1,0 +1,10 @@
+1. Comment on the results.
+Adaptive filtering keeps a lot of the same features of the original picture
+
+2. What are the diadvantages of binary threshold?
+It losses a lot of information that was originally carried by the picture.As the representation is only a silhouette, 
+application is restricted to tasks where internal detail is not required as a distinguishing characteristic.
+
+3. When is Adaptive Threshold useful?
+We can apply a lot of thresholds at the same time. So we can gather the advantages of different thresholds while make up for the disadvantages
+of each threshold by combining these features together.
