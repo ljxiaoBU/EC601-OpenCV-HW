@@ -1,0 +1,60 @@
+1. ColorImage.cpp is a program that takes a look at colorspace conversions in OpenCV. Run the code in ColorImage.cpp and comment on the outputs. Implement the same thing in Python and save each image.
+
+
+//click on the New button to download an OpenCV template to begin.
+#include "opencv2/core/core.hpp"
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+#include "iostream"
+
+ // Author Rishab Shah
+
+using namespace cv;
+using namespace std;
+ 
+int main(int argc, char** argv )
+{
+    Mat src;
+    src = imread(argv[1], CV_LOAD_IMAGE_COLOR);
+    namedWindow( "Original image", CV_WINDOW_AUTOSIZE );
+    imshow( "Original image", src);
+
+	vector<Mat> input_planes(3);
+	split(src,input_planes);                                //split the source file into RGB dimensions, which is 3 color channels
+	Mat channel1_display, channel2_display, channel3_display;
+        imshow("Red",   input_planes[2]);
+        imshow("Green",   input_planes[1]);
+        imshow("Blue",   input_planes[0]);
+
+
+	Mat ycrcb_image;
+	cvtColor(src, ycrcb_image, CV_BGR2YCrCb);        //convert the color format from RGB to YCrCb
+	split(ycrcb_image,input_planes);                 //split the input file into color channels
+        imshow("Y",   input_planes[0]);
+        imshow("Cb",   input_planes[1]);
+        imshow("Cr",   input_planes[2]);
+
+
+	Mat hsv_image;
+	cvtColor(src, hsv_image, CV_BGR2HSV);              //convert the color format from RGB to HSV
+	vector<Mat> hsv_planes(3);                         //split into color channels
+	split(hsv_image,hsv_planes);
+        imshow("Hue",   hsv_planes[0]);
+        imshow("Saturation",   hsv_planes[1]);
+        imshow("Value",   hsv_planes[2]);
+
+
+	
+    waitKey(0);                                       
+    return 0;
+} 
+
+
+
+
+2. Print out the values of the pixel at (20,25) in the RGB, YCbCr and HSV versions of the image. What are the ranges of pixel values in each channel of each of the above mentioned colorspaces?
+
+r[20,25] =  225 g[20,25] =  122 b[20,25] =  106
+h[20,25] =  4 s[20,25] =  135 v[20,25] =  225
+y[20,25] =  151 cb[20,25] =  181 cr[20,25] =  103
+0-225
