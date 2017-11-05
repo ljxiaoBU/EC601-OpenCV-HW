@@ -1,0 +1,5 @@
+1. When kernal sizes increase, the result becomes worse.
+   When pa and pb increase, results becomes worse. When sigma and mean goes up, result goes worse.
+2. Which filter seems to work better for images with salt and pepper noise and gaussian noise?
+
+For salt and pepper noise, median filter seems better. For gaussian noise, gaussian filter is better.
